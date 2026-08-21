@@ -31,7 +31,7 @@ export default function Admissions() {
       
       // We assume user is not logged in yet, so the Edge Function will handle anonymous submission, 
       // or we use Supabase anonymous auth if enabled. For now, calling edge function.
-      const { data, error } = await supabase.functions.invoke('validate-write', {
+      const { error } = await supabase.functions.invoke('validate-write', {
         body: { action: 'submit_application', payload: parsed }
       });
 
